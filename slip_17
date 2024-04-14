@@ -1,29 +1,31 @@
 Q1
-<!DOCTYPEhtml>
+
+<!DOCTYPE html>
 <html>
 <head>
-<title>StudentRegistrationForm</title>
-<script>
-Window.onload=function(){
-Alert(“HelloGoodMorning!”);
-};
-</script>
+<title>Hello, Good Morning!</title>
 </head>
-<body>
-<h1>StudentRegistrationForm</h1>
+<body onload="showAlert()">
+<script>
+function showAlert() {
+alert("Hello, Good Morning!");
+}
+</script>
+<h2>Student Registration Form</h2>
 <form>
-<labelfor=”name”>Name:</label>
-<inputtype=”text”id=”name”name=”name”required><br><br>
-<labelfor=”email”>Email:</label>
-<inputtype=”email”id=”email”name=”email”required><br><br>
-<labelfor=”phone”>Phone:</label>
-<inputtype=”tel”id=”phone”name=”phone”required><br><br>
-<labelfor=”address”>Address:</label>
-<textareaid=”address”name=”address”required></textarea><br><br>
-<inputtype=”submit”value=”Submit”>
+<label for="name">Name:</label>
+<input type="text" id="name" name="name"><br><br>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email"><br><br>
+<label for="phone">Phone:</label>
+<input type="tel" id="phone" name="phone"><br><br>
+<label for="address">Address:</label>
+<textarea id="address" name="address"></textarea><br><br>
+<input type="submit" value="Submit">
 </form>
 </body>
 </html>
+
 
 
 Q2
