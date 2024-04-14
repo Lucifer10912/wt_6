@@ -1,24 +1,50 @@
 Q1
+
+XML 
+
+<?xml version="1.0" ?>
+<bookinfo>
+<Book bid="b001">
+<bname>java</bname>
+<author> abc </author>
+<publication>Vision</publication>
+<price>123</price>
+</Book>
+<Book bid="b002">
+<bname>PHP</bname>
+<author> pqr </author>
+<publication>Techmax</publication>
+<price>250</price>
+</Book>
+<Book bid="b001">
+<bname>OS</bname>
+<author> qqq </author>
+<publication>Nirali</publication>
+<price>127</price>
+</Book>
+</bookinfo>
+
+PHP CODE
+
 <?php
-//LoadtheXMLfileintoaSimpleXMLobject
-$xml=simplexml_load_file(“book.xml”);
-//DisplaytheattributesandelementsoftheSimpleXMLobject
-Echo“Bookattributes:<br>”;
-Echo“ISBN:“.$xml[‘isbn’].“<br>”;
-Echo“Publisher:“.$xml[‘publisher’].“<br>”;
-Echo“<br>”;
-Echo“Bookelements:<br>”;
-Echo“Title:“.$xml->title.“<br>”;
-Echo“Author:“.$xml->author.“<br>”;
-Echo“Description:“.$xml->description.“<br>”;
-?>
-Book.xmlfile
-<?xmlversion=”1.0”?>
-<bookisbn=”978-3-16-148410-0”publisher=”ExamplePublisher”>
-<title>ExampleBook</title>
-<author>JohnDoe</author>
-<description>Thisisanexamplebook.</description>
-</book
+$xml=simplexml_load_file('book.xml') or die("can not load");
+echo"BOOK DETAILS<br>";
+echo"<table border='1'>";
+echo"<tr><th>bid</th><th>bname</th><th>author</th><th>publication</th><th>price</th></t
+r>";
+foreach($xml->Book as $a)
+{
+echo "<tr>";
+echo"<td>".$a['bid']."</td>";
+echo "<td>".$a->bname."</td>";
+echo "<td>".$a->author."</td>";
+echo "<td>".$a->publication."</td>";
+echo"<td>".$a->price."</td></tr>";
+}
+echo"</table>";
+?
+
+
 
 Q2
 Importpandasaspd
