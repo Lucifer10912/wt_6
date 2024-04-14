@@ -50,49 +50,37 @@ echo "</font></body>";
 
 Q2
 
-import matplatlib pyplat as pit import numpy as np import pandas as pol
-From sklearn linear_model import
-Linear Regression
-From sklearn metrics import mean-squand error,
-r2 - Score
-foom skleam - model_ selection import train - test-spli
-dtata=f
-'ID' : range (1, 501);
-" Elat' : np. random uniForm (50, 150, 500);
-'Houses': np. random. uniform (100,300, 500);
-'Purchases' : Ap. random uniForm (50, 150,500) }
-dF = Pd. Data Frame (data)
-print (df. sample (s))
-print (dF. shape)
-new _df =dF Edf [' purchases] > = 12)
-print (new - df. shape)
-new-df = new-dF C['Flat', 'Purchases' I]
-new _ dF. sample (5)
-x = np. array (new -dF ('Flat 13)
-y = np. array (new - dF (' Purchases'])
-print ex- shape) print (y-shape)
-p/t. Subplot (221)
-plt. scatter (x, y, color = * red)
-plt. title ('Flat Us purchases')
-p/t. xlabel ("Flat")
-pIt: ylabel ("Purchases")
-a-train x. test, y-train, y-test = bain-tot
-split (o,y, test - size = 0.25, zandom stake (s
-regressor = linear Regression()
-regns502. Fit (x-train, ybain)
-pIt-subplot (222)
-plt: scatter (oc-test, y-test, color = "green'")
-p|t. plot (x test, regrssor.predict(X-test),
-color red', linewidth = 3)
-plt. title Regussion (Test set)")
-p/t xlabel ('Flat')
-plt. ylabel (Purchases')
-p/t: subplot (223)
-p/t. scatter (x-taun; y train, Color = green)
-p/t. plot (x- bain, HegH550r. predict (x-tain),
-Color = red', linewidth = 3)
-plt. title "Regression (Todininy set) ")
-plt. sclabel ("Flat" )
-ply. ylabel ("Purchases" )
-plt. tight_ layout ( )
-plt. show ()
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+# Create the Salary dataset
+data = {'YearsExperience': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        'Salary': [50000, 60000, 70000, 80000, 90000, 100000, 110000, 120000, 130000, 140000]}
+
+df = pd.DataFrame(data)
+
+# Identify the independent and target variables
+X = df.iloc[:, 0:1].values
+y = df.iloc[:, 1].values
+
+# Split the variables into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Build a simple linear regression model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Make predictions on the testing set
+y_pred = model.predict(X_test)
+
+# Plot the regression line
+plt.scatter(X_test, y_test, color='blue', label='Actual')
+plt.plot(X_test, y_pred, color='red', linewidth=2, label='Predicted')
+plt.title('Simple Linear Regression Model')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.legend()
+plt.show()
