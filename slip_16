@@ -79,42 +79,23 @@ Stone</option>
 
 
 Q2
-Importre
-Importnltk
-Fromnltk.corpusimportstopwords
-Fromnltk.tokenizeimportsent_tokenize,word_tokenize
-Fromheapqimportnlargest
-#Sampletextparagraphyoucanwriteanytext
-Text=“Naturallanguageprocessing(NLP)isasubfieldoflinguistics,computerscience,
-informationengineering,andartificialintelligenceconcernedwiththeinteractionsbetween
-computersandhumanlanguages,inparticularhowtoprogramcomputerstoprocessand
-analyzelargeamountsofnaturallanguagedata.Challengesinnaturallanguageprocessing
-frequentlyinvolvespeechrecognition,naturallanguageunderstanding,andnaturallanguage
-generation.Thehistoryofnaturallanguageprocessinggenerallystartedinthe1950s,although
-workcanbefoundfromearlierperiods.”
-#Removespecialcharactersanddigits
-Text=re.sub(‘[^a-zA-Z]’,‘‘,text)
-#Tokenizethetextintosentences
-Sentences=sent_tokenize(text)
-#Tokenizeeachsentenceintowordsandremovestopwords
-Stop_words=set(stopwords.words(‘english’))
-Words=[]
-Forsentenceinsentences:
-Words.extend(word_tokenize(sentence))
-Words=[word.lower()forwordinwordsifword.lower()notinstop_words]
-#Calculatewordfrequency
-Word_freq=nltk.FreqDist(words)
-#Calculatesentencescoresbasedonwordfrequency
-Sentence_scores={}
-Forsentenceinsentences:
-Forwordinword_tokenize(sentence.lower()):
-Ifwordinword_freq:
-Iflen(sentence.split(‘‘))<30:
-Ifsentencenotinsentence_scores:
-Sentence_scores[sentence]=word_freq[word]
-Else:
-Sentence_scores[sentence]+=word_freq[word]
-#Generatesummarybyselectingtop3sentenceswithhighestscores
-Summary_sentences=nlargest(3,sentence_scores,key=sentence_scores.get)
-Summary=‘‘.join(summary_sentences)
-Print(summary)
+
+import nltk
+import re
+nltk.download('all')
+import re
+
+text = """"Text Summariaztion 000 is an NLP techniqe that extracts text froma large amount of data.
+It is the process of identifying the most imporant 1meaningful information Sin a document and compressing it
+7into a shorter version by preserving its meaning. Types: Extractive summarization and Abstractive summarization.
+To perform extractive summarization, @@we calculate the sentence weights and choose the first 'n' sentence with
+maximum weight, {The weights are calculated on the basis of the word frequencies ] """
+
+text = re.sub(r'[[0-9]*]',' ',text)
+
+text = re.sub(r's+',' ',text)
+
+text = re.sub(r'[[0-9]{}*]',' ',text)
+
+formatted_text = re.sub('[^a-zA-Z]',' ',text)
+print(formatted_text)
