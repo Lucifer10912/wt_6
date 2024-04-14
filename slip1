@@ -30,28 +30,38 @@ echo "<a href=a5_a1.php> click here</a>";
 
 
 Q2
-Importnumpyasnp
-Importpandasaspd
-Fromsklearn.model_selectionimporttrain_test_split
-Fromsklearn.linear_modelimportLinearRegression
-#CreatethePosition_Salariesdataset
-Data={‘Position’:[‘CEO’,‘charman’,‘director’,‘SeniorManager’,‘JuniorManager’,‘Intern’],
-‘Level’:[1,2,3,4,5,6],
-‘Salary’:[50000,80000,110000,150000,200000,250000]}
-Df=pd.DataFrame(data)
-#Identifytheindependentandtargetvariables
-X=df.iloc[:,1:2].values
-Y=df.iloc[:,2].values
-#Splitthevariablesintotrainingandtestingsetswitha7:3ratio
-X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3,random_state=0)
-#Printthetrainingandtestingsets
-Print(“X_train:\n”,X_train)
-Print(“y_train:\n”,y_train)
-Print(“X_test:\n”,X_test)
-Print(“y_test:\n”,y_test)
-#Buildasimplelinearregressionmodel
-Regressor=LinearRegression()
-Regressor.fit(X_train,y_train)
-#Printthecoefficientsandintercept
-Print(“Coefficients:”,regressor.coef_)
-Print(“Intercept:”,regressor.intercept_)
+
+import pandas a 5 pd import numpy as np
+import sklearn model - selection import train-test_ split
+From sklearn •linear-model import linearRegression
+Foom sklearn. metrices import ra-score, mean_ squarted- error
+Data={ エD：[1.2.3.4.57]， TV： （10. 20.30
+40.507. Newspsper: (11 22.33.44.55
+Radio'： ［11.222,333, u44,ssslo
+'Sales': [50000, 80000, 110000, 150000,20000]}
+dF = Pd. DataFrame (Data)
+dF = Pd. read csv ('/homel lab4/DA Practical/Assigament/sales.csul
+print (dF. sample (5))
+print (dE shape)
+printdf ('sales'] • value-counts()
+Aew-dE=dfdF ['sales'7. Value -count
+new-df=dfCdf C'sales'77=12）
+print (new-df shape)
+new-dF = new _ dF [T'TV', 'Sales'I]
+new_dF. Sample (5)
+Xinp-array （neu-df 「r:TVココ）
+У = np. array (new-dF [l'Sales']])
+print (x. shape) print (y. shape)
+plt.titleC'TV Vs Sales'）
+pIt. xlabel (TV')
+p/t. ylabel ('Sales')
+plt show ()
+x_train, X-test, y-brain. Ytest = trauntest
+Split (x,y, test size = 0.25, randan.
+state=15）
+regression = LinearRegression ()
+regression (x-train, y-train)
+pIt scatter (x-test, y -test, color = "green" )
+pit. plot (xtrain, regressor. predict (x tocin),
+color ="red", Linewidth = 3)
+plt. title
