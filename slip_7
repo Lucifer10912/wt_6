@@ -50,25 +50,23 @@ echo "<br>";
 
 
 Q2
-Importpandasaspd
-Frommlxtend.preprocessingimportTransactionEncoder
-Frommlxtend.frequent_patternsimportapriori,association_rules
-#readthedataset
-Df=pd.read_csv(‘Market_Basket_Optimisation.csv’,header=None)
-#dropnullvalues
-Df.dropna(inplace=True)
-#convertcategoricalvaluestonumericusingone-hotencoding
-Te=TransactionEncoder()
-Te_ary=te.fit(df.values).transform(df.values)
-Df=pd.DataFrame(te_ary,columns=te.columns_)
-#generatefrequentitemsetsusingapriorialgorithm
-Frequent_itemsets=apriori(df,min_support=0.01,use_colnames=True)
-#generateassociationrulesfromfrequentitemsets
-Rules=association_rules(frequent_itemsets,metric=”lift”,min_threshold=1)
-#displayinformation
-Print(“OriginalDataset:\n”)
-Print(df.head())
-Print(“\nFrequentItemsets:\n”)
-Print(frequent_itemsets)
-Print(“\nAssociationRules:\n”)
-Print(rules)
+
+import numpy as np
+import pandas as pd
+from apyori import apriori
+
+df = pd.read_csv('D:/Computer Science/TY/SEM6/Data-Analytics/DA-pratical/CSV/Market_Basket.csv',header=None)
+print(df.head(20))
+print(df.fillna(0,inplace=True))
+
+transactions = []
+for i in range(0,len(df)):
+	transactions.append([str(df.values[i,j]) for j in range(0,20) if str(df.values[i,j])!='0'])
+print(transactions[0])
+
+rules = apriori(transactions,min_support=0.003,min_confidance=0.2,min_lift=3,min_length=2)
+print(rules)
+Results = list(rules)
+print(Results)
+df_results = pd.DataFrame(Results)
+print(df_results.head())
