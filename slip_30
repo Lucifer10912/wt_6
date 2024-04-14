@@ -1,43 +1,64 @@
 Q1
-<?xmlve<?xmlversion=”1.0”encoding=”UTF-8”?>
+
+<?xml version="1.0" encoding="UTF-8"?>
 <Bookstore>
 <Yoga>
 <Book>
-<Book_Title>LightonYoga</Book_Title>
-<Book_Author>B.K.S.Iyengar</Book_Author>
-<Book_Price>20.99</Book_Price>
+<Book_Title>The Yoga Sutras of Patanjali</Book_Title>
+<Book_Author>Patanjali</Book_Author>
+<Book_Price>10.99</Book_Price>
 </Book>
 <Book>
-<Book_Title>TheYogaBible</Book_Title>
-<Book_Author>ChristinaBrown</Book_Author>
-<Book_Price>15.50</Book_Price>
+<Book_Title>Light on Yoga</Book_Title>
+<Book_Author>B.K.S. Iyengar</Book_Author>
+<Book_Price>15.99</Book_Price>
+</Book>
+<Book>
+<Book_Title>The Heart of Yoga</Book_Title>
+Web Technologies-II slips K.K.Wagh Nashik By.P.S.Malani
+<Book_Author>T.K.V. Desikachar</Book_Author>
+<Book_Price>12.99</Book_Price>
 </Book>
 </Yoga>
 <Story>
 <Book>
-<Book_Title>TheAlchemist</Book_Title>
-<Book_Author>PauloCoelho</Book_Author>
-<Book_Price>12.99</Book_Price>
+<Book_Title>The Great Gatsby</Book_Title>
+<Book_Author>F. Scott Fitzgerald</Book_Author>
+<Book_Price>8.99</Book_Price>
 </Book>
 <Book>
-<Book_Title>TheDaVinciCode</Book_Title>
-<Book_Author>DanBrown</Book_Author>
-<Book_Price>14.75</Book_Price>
+<Book_Title>To Kill a Mockingbird</Book_Title>
+<Book_Author>Harper Lee</Book_Author>
+<Book_Price>9.99</Book_Price>
+</Book>
+<Book>
+<Book_Title>1984</Book_Title>
+<Book_Author>George Orwell</Book_Author>
+<Book_Price>7.99</Book_Price>
 </Book>
 </Story>
 <Technical>
 <Book>
-<Book_Title>PythonforDataScienceHandbook</Book_Title>
-<Book_Author>JakeVanderPlas</Book_Author>
-<Book_Price>28.99</Book_Price>
+<Book_Title>Programming PHP</Book_Title>
+<Book_Author>Kevin Tatroe, Peter MacIntyre, Rasmus Lerdorf</Book_Author>
+<Book_Price>22.99</Book_Price>
 </Book>
 <Book>
-<Book_Title>CrackingtheCodingInterview</Book_Title>
-<Book_Author>GayleLaakmannMcDowell</Book_Author>
-<Book_Price>23.50</Book_Price>
+<Book_Title>Head First Design Patterns</Book_Title>
+<Book_Author>Eric Freeman, Elisabeth Robson, Bert Bates, Kathy 
+Sierra</Book_Author>
+<Book_Price>19.99</Book_Price>
+</Book>
+<Book>
+<Book_Title>Clean Code</Book_Title>
+<Book_Author>Robert C. Martin</Book_Author>
+<Book_Price>16.99</Book_Price>
 </Book>
 </Technical>
 </Bookstore>
+
+
+
 
 
 
