@@ -48,23 +48,50 @@ table
 
 
 Q2
-Importnumpyasnp
-Importpandasaspd
-Fromsklearn.linear_modelimportLinearRegression
-Fromsklearn.model_selectionimporttrain_test_split
-#Createarandomdatasetwith10samples
-Heights=np.random.normal(170,10,10)
-Weights=np.random.normal(70,5,10)
-#Combinethetwoarraysintoasingledataset
-Dataset=pd.DataFrame({‘Height’:heights,‘Weight’:weights})
-#Splitthedatasetintotrainingandtestingsets
-X_train,X_test,y_train,y_test=train_test_split(dataset[‘Height’],dataset[‘Weight’],test_size=0.2,
-random_state=42)
-#CreateaLinearRegressionmodelandfitittothetrainingdata
-Lr_model=LinearRegression()
-Lr_model.fit(X_train.values.reshape(-1,1),y_train)
-#Printthemodelcoefficients
-Print(‘ModelCoefficients:’,lr_model.coef_)
-#Predicttheweightsforthetestdataandprintthepredictions
-Y_pred=lr_model.predict(X_test.values.reshape(-1,1))
-Print(‘Predictions:’,y_pred)
+
+import matplatlib pyplat as pit import numpy as np import pandas as pol
+From sklearn linear_model import
+Linear Regression
+From sklearn metrics import mean-squand error,
+r2 - Score
+foom skleam - model_ selection import train - test-spli
+dtata=f
+'ID' : range (1, 501);
+" Elat' : np. random uniForm (50, 150, 500);
+'Houses': np. random. uniform (100,300, 500);
+'Purchases' : Ap. random uniForm (50, 150,500) }
+dF = Pd. Data Frame (data)
+print (df. sample (s))
+print (dF. shape)
+new _df =dF Edf [' purchases] > = 12)
+print (new - df. shape)
+new-df = new-dF C['Flat', 'Purchases' I]
+new _ dF. sample (5)
+x = np. array (new -dF ('Flat 13)
+y = np. array (new - dF (' Purchases'])
+print ex- shape) print (y-shape)
+p/t. Subplot (221)
+plt. scatter (x, y, color = * red)
+plt. title ('Flat Us purchases')
+p/t. xlabel ("Flat")
+pIt: ylabel ("Purchases")
+a-train x. test, y-train, y-test = bain-tot
+split (o,y, test - size = 0.25, zandom stake (s
+regressor = linear Regression()
+regns502. Fit (x-train, ybain)
+pIt-subplot (222)
+plt: scatter (oc-test, y-test, color = "green'")
+p|t. plot (x test, regrssor.predict(X-test),
+color red', linewidth = 3)
+plt. title Regussion (Test set)")
+p/t xlabel ('Flat')
+plt. ylabel (Purchases')
+p/t: subplot (223)
+p/t. scatter (x-taun; y train, Color = green)
+p/t. plot (x- bain, HegH550r. predict (x-tain),
+Color = red', linewidth = 3)
+plt. title "Regression (Todininy set) ")
+plt. sclabel ("Flat" )
+ply. ylabel ("Purchases" )
+plt. tight_ layout ( )
+plt. show ()
