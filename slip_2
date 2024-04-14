@@ -1,78 +1,50 @@
 Q1
-Fristpage.html
-<!DOCTYPEhtml>
+HTML file :
+
 <html>
-<head>
-<title>Changepreferences</title>
-</head>
 <body>
-<h1>Changepreferences</h1>
-<formaction=”secondpage.php”method=”post”>
-<labelfor=”fontstyle”>FontStyle:</label>
-<selectname=”fontstyle”id=”fontstyle”>
-<optionvalue=”Arial”>Arial</option>
-<optionvalue=”TimesNewRoman”>TimesNewRoman</option>
-<optionvalue=”Verdana”>Verdana</option>
-</select><br><br>
-<labelfor=”fontsize”>FontSize:</label>
-<selectname=”fontsize”id=”fontsize”>
-<optionvalue=”12”>12</option>
-<optionvalue=”14”>14</option>
-<optionvalue=”16”>16</option>
-</select><br><br>
-<labelfor=”fontcolor”>FontColor:</label>
-<inputtype=”color”name=”fontcolor”id=”fontcolor”><br><br>
-<labelfor=”bgcolor”>BackgroundColor:</label>
-<inputtype=”color”name=”bgcolor”id=”bgcolor”><br><br>
-<inputtype=”submit”name=”submit”value=”Save”>
+<form action="slip21_2_1.php" method="get">
+<center>
+<b>Select font style :</b><input type=text name=s1> <br>
+<b>Enter font size : </b><input type=text name=s><br>
+<b>Enter font color : </b><input type=text name=c><br>
+<b>Enter background color :</b> <input type=text name=b><br>
+<input type=submit value="Next">
+</center>
 </form>
 </body>
 </html>
-Secondpage.php
+
+PHP CODE
+
 <?php
-If(isset($_POST[‘submit’])){
-$fontstyle=$_POST[‘fontstyle’];
-$fontsize=$_POST[‘fontsize’];
-$fontcolor=$_POST[‘fontcolor’];
-$bgcolor=$_POST[‘bgcolor’];
-//Setthecookievalues
-Setcookie(‘fontstyle’,$fontstyle,time()+86400);
-Setcookie(‘fontsize’,$fontsize,time()+86400);
-Setcookie(‘fontcolor’,$fontcolor,time()+86400);
-Setcookie(‘bgcolor’,$bgcolor,time()+86400);
-//Redirecttothenextpage
-Header(‘Location:thirdpage.php’);
-Exit();
-}
+echo "style is ".$_GET['s1']."<br>color is ".$_GET['c']."<br>Background color is 
+".$_GET['b']."<br>size is ".$_GET['s'];
+setcookie("set1",$_GET['s1'],time()+3600);
+setcookie("set2",$_GET['c'],time()+3600);
+setcookie("set3",$_GET['b'],time()+3600);
+setcookie("set4",$_GET['s'],time()+3600);
 ?>
-Thirdpage.php
-<?php
-//Retrievethecookievalues
-$fontstyle=isset($_COOKIE[‘fontstyle’])?$_COOKIE[‘fontstyle’]:‘Arial’;
-$fontsize=isset($_COOKIE[‘fontsize’])?$_COOKIE[‘fontsize’]:‘12’;
-$fontcolor=isset($_COOKIE[‘fontcolor’])?$_COOKIE[‘fontcolor’]:‘#000000’;
-$bgcolor=isset($_COOKIE[‘bgcolor’])?$_COOKIE[‘bgcolor’]:‘#FFFFFF’;
-?>
-<!DOCTYPEhtml>
 <html>
-<head>
-<title>Pagewithnewsettings</title>
-<styletype=”text/css”>
-Body{
-Font-family:<?phpecho$fontstyle?>;
-Font-size:<?phpecho$fontsize?>px;
-Color:<?phpecho$fontcolor?>;
-Background-color:<?phpecho$bgcolor?>;
-}
-</style>
-</head>
 <body>
-<h1>Pagewithnewsettings</h1>
-<p>Thisisthepagewiththenewsettings.Thefontstyleis<?phpecho$fontstyle?>,the
-fontsizeis<?phpecho$fontsize?>px,thefontcoloris<?phpecho$fontcolor?>,andthe
-backgroundcoloris<?phpecho$bgcolor?>.</p>
+<form action="slip21_2_2.php">
+<input type=submit value=OK>
+</form>
 </body>
 </html>
+
+PHP CODE
+
+<?php
+$style = $_COOKIE['set1'];
+$color = $_COOKIE['set2'];
+$size = $_COOKIE['set4'];
+$b_color = $_COOKIE['set3'];
+$msg = "Welcome to IP";
+echo "<body bgcolor=$b_color>";
+echo "<font face=$style color=$color size=$size>$msg";
+echo "</font></body>";
+?>
 
 
 
