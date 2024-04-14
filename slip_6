@@ -47,27 +47,25 @@ echo"</table>";
 
 
 Q2
-Importpandasaspd
-Frommlxtend.preprocessingimportTransactionEncoder
-Frommlxtend.frequent_patternsimportapriori,association_rules
-#createthedataset
-TID=
-{1:[“bread”,”milk”],2:[“bread”,”diaper”,”beer”,”eggs”],3:[“milk”,”diaper”,”beer”,”coke”],4:[“bread”,”mil
-k”,”diaper”,”beer”],5:[“bread”,”milk”,”diaper”,”coke”]}
-Transactions=[]
-Forkey,valueinTID.items():
-Transactions.append(value)
-#convertthecategoricalvaluesintonumericformat
-Te=TransactionEncoder()
-Te_ary=te.fit_transform(transactions)
-Df=pd.DataFrame(te_ary,columns=te.columns_)
-#applytheapriorialgorithmwithdifferentmin_supvalues
-Min_sup_values=[0.2,0.4,0.6]
-Formin_supinmin_sup_values:
-Frequent_itemsets=apriori(df,min_support=min_sup,use_colnames=True)
-Rules=association_rules(frequent_itemsets,metric=”confidence”,min_threshold=0.7)
-Print(“Min_sup:”,min_sup)
-Print(“FrequentItemsets:”)
-Print(frequent_itemsets)
-Print(“AssociationRules:”)
-Print(rules)
+
+import pandas as pd
+from mlxtend.frequent_patterns import apriori, association_rules
+
+transactions = [['Bread','Milk'],
+                ['Bread','Diaper','Beer','Eggs'],
+                ['Milk','Diaper','Beer','coke'],
+                ['Bread','Milk','Diaper','coke'],
+                ['Bread','Milk','Diaper','Eggs']]
+print(transactions)
+from mlxtend.preprocessing import TransactionEncoder
+
+te = TransactionEncoder()
+te_array = te.fit(transactions).transform(transactions)
+df = pd.DataFrame(te_array, columns=te.columns_)
+print(df)
+freq_items = apriori(df, min_support=0.5,use_colnames = True)
+print(freq_items)
+rules = association_rules(freq_items,metric='support',min_threshold=0.5)
+rules = rules.sort_values(['support','confidence'], ascending=[False,False])
+print(rules)
+
