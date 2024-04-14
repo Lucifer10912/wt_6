@@ -1,50 +1,52 @@
 Q1
+
+XML
+
+<?xml version="1.0"?>
+<movieinfo>
+<movie no="101">
+<title>Sooryavanshi</title>
+<actor>akshay kumar</actor>
+<ryear>2021</ryear>
+</movie>
+<movie no="102">
+<title>Simba</title>
+<actor>Ranbir Singh</actor>
+<ryear>2020</ryear>
+</movie>
+<movie no="103">
+<title>Bahubali</title>
+<actor>Prabhas</actor>
+<ryear>2018</ryear>
+</movie>
+<movie no="104">
+<title>Radhe</title>
+<actor>Salman Khan</actor>
+<ryear>2020</ryear>
+</movie>
+</movieinfo>
+
+PHP CODE
+
 <?php
-//LoadtheXMLfile
-$xml=newDOMDocument();
-$xml->load(‘Movie.xml’);
-//Getallthemovienodes
-$movies=$xml->getElementsByTagName(‘MovieInfo’);
-//Loopthrougheachmovienodeandprintthemovietitleandactorname
-Foreach($moviesas$movie){
-Echo“MovieTitle:“.$movie->getElementsByTagName(‘MovieTitle’)[0]->textContent.“,“;
-Echo“ActorName:“.$movie->getElementsByTagName(‘ActorName’)[0]->textContent.“<br>”;
+$dom=new DomDocument();
+$dom->load("movie.xml");
+echo "<b>movies title</b><br>";
+$t=$dom->getElementsByTagName("title");
+foreach($t as $node)
+{
+print $node->textContent;
+echo "<br>";
+}
+echo "<b>actor name</b><br>";
+$t1=$dom->getElementsByTagName("actor");
+foreach($t1 as $node)
+{
+print $node->textContent;
+echo "<br>";
 }
 ?>
-XMLfile
-<?xmlversion=”1.0”?>
-<MovieList>
-<MovieInfo>
-<MovieNo>1</MovieNo>
-<MovieTitle>TheShawshankRedemption</MovieTitle>
-<ActorName>TimRobbins</ActorName>
-<ReleaseYear>1994</ReleaseYear>
-</MovieInfo>
-<MovieInfo>
-<MovieNo>2</MovieNo>
-<MovieTitle>TheGodfather</MovieTitle>
-<ActorName>MarlonBrando</ActorName>
-<ReleaseYear>1972</ReleaseYear>
-</MovieInfo>
-<MovieInfo>
-<MovieNo>3</MovieNo>
-<MovieTitle>TheDarkKnight</MovieTitle>
-<ActorName>ChristianBale</ActorName>
-<ReleaseYear>2008</ReleaseYear>
-</MovieInfo>
-<MovieInfo>
-<MovieNo>4</MovieNo>
-<MovieTitle>TheGodfather:PartII</MovieTitle>
-<ActorName>AlPacino</ActorName>
-<ReleaseYear>1974</ReleaseYear>
-</MovieInfo>
-<MovieInfo>
-<MovieNo>5</MovieNo>
-<MovieTitle>12AngryMen</MovieTitle>
-<ActorName>HenryFonda</ActorName>
-<ReleaseYear>1957</ReleaseYear>
-</MovieInfo>
-</MovieList>
+
 
 
 Q2
