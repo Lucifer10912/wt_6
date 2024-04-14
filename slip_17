@@ -29,27 +29,24 @@ alert("Hello, Good Morning!");
 
 
 Q2
-Importre
-Fromnltk.tokenizeimportsent_tokenize
-#Textparagraph
-Text=“So,keepworking.Keepstriving.Nevergiveup.Falldownseventimes,getupeight.Ease
-isagreaterthreattoprogressthanhardship.Easeisagreaterthreattoprogressthanhardship.
-So,keepmoving,keepgrowing,keeplearning.Seeyouatwork.”
-#Removespecialcharactersanddigits
-Text=re.sub(‘[^A-Za-z]+’,‘‘,text)
-#Tokenizethesentences
-Sentences=sent_tokenize(text)
-#Calculatethescoreofeachsentencebasedonthenumberofwords
-#Thesentenceswithmorewordswillhaveahigherscore
-Scores={}
-Forsentenceinsentences:
-Words=sentence.split()
-Score=len(words)
-Scores[sentence]=score
-#Sortthesentencesbasedontheirscores
-Sorted_sentences=sorted(scores.items(),key=lambdax:x[1],reverse=True)
-#Extractthetop2sentenceswiththehighestscoresasthesummary
-Summary_sentences=[sentence[0]forsentenceinsorted_sentences[:2]]
-Summary=““.join(summary_sentences)
-#Printthesummary
-Print(summary)
+
+import nltk
+import re
+nltk.download('all')
+import re
+
+text = """"Text Summariaztion 000 is an NLP techniqe that extracts text froma large amount of data.
+It is the process of identifying the most imporant 1meaningful information Sin a document and compressing it
+7into a shorter version by preserving its meaning. Types: Extractive summarization and Abstractive summarization.
+To perform extractive summarization, @@we calculate the sentence weights and choose the first 'n' sentence with
+maximum weight, {The weights are calculated on the basis of the word frequencies ] """
+
+text = re.sub(r'[[0-9]*]',' ',text)
+
+text = re.sub(r's+',' ',text)
+
+text = re.sub(r'[[0-9]{}*]',' ',text)
+
+formatted_text = re.sub('[^a-zA-Z]',' ',text)
+print(formatted_text)
+
