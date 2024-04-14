@@ -1,63 +1,50 @@
 Q1
-Htmlfile
-<<!DOCTYPEhtml>
+
+HTML CODE
+
 <html>
 <head>
-<title>ContactList</title>
-<scriptsrc=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
-<scriptsrc=”script.js”></script>
+<style>
+span
+{
+ font-size: 25px;
+}
+table
+{
+ color: blueviolet; ;
+}
+</style>
+<script type="text/javascript" >
+ function print()
+ {
+ var ob=false;
+ ob=new XMLHttpRequest();
+ 
+ ob.open("GET","a1.php?");
+ ob.send(); 
+ 
+ ob.onreadystatechange=function()
+ {
+ if(ob.readyState==4 && ob.status==200)
+ {
+ document.getElementById("i").innerHTML=ob.responseText;
+ }
+ }
+ } 
+</script>
 </head>
 <body>
-<buttonid=”printBtn”>PrintContacts</button>
-<br><br>
-<tableid=”contactTable”>
-<thead>
-<tr>
-<th>Sr.No.</th>
-<th>Name</th>
-<th>ResidenceNumber</th>
-<th>MobileNumber</th>
-<th>Address</th>
-</tr>
-</thead>
-<tbody>
-<!—Contactlistwillbedisplayedhere
-</tbody>
-</table>
+<center>
+<h3>Display the contents of a contact.dat file </h3>
+<form id="myform" action="a1.php" method="GET">
+<br><input type="button" value=Print onclick="print()">
+</form>
+<span id="i"></span>
+</center>
 </body>
 </html>
-Ajaxfile
-$(document).ready(function(){
-//Eventlistenerforprintbutton
-$(“#printBtn”).click(function(){
-//AJAXrequesttoreadcontact.datfile
-$.ajax({
-url:“contact.dat”,
-dataType:“text”,
-success:function(data){
-//Splitthefilecontentsintolines
-Varlines=data.split(“\n”);
-//Iterateovereachlineandcreateatablerow
-VartableRows=“”;
-For(vari=0;i<lines.length;i++){
-Varcolumns=lines[i].split(“,”);
-If(columns.length==5){//Onlyprocessvalidrows
-tableRows+=“<tr>”;
-for(varj=0;j<columns.length;j++){
-tableRows+=“<td>”+columns[j]+“</td>”;
-}
-tableRows+=“</tr>”;
-}
-}
-//Addthetablerowstothetablebody
-$(“#contactTabletbody”).html(tableRows);
-},
-Error:function(jqXHR,textStatus,errorThrown){
-Alert(“Error:“+errorThrown);
-}
-});
-});
-})
+
+
 
 
 Q2
