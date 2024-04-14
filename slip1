@@ -31,37 +31,54 @@ echo "<a href=a5_a1.php> click here</a>";
 
 Q2
 
-import pandas a 5 pd import numpy as np
-import sklearn model - selection import train-test_ split
-From sklearn •linear-model import linearRegression
-Foom sklearn. metrices import ra-score, mean_ squarted- error
-Data={ エD：[1.2.3.4.57]， TV： （10. 20.30
-40.507. Newspsper: (11 22.33.44.55
-Radio'： ［11.222,333, u44,ssslo
-'Sales': [50000, 80000, 110000, 150000,20000]}
-dF = Pd. DataFrame (Data)
-dF = Pd. read csv ('/homel lab4/DA Practical/Assigament/sales.csul
-print (dF. sample (5))
-print (dE shape)
-printdf ('sales'] • value-counts()
-Aew-dE=dfdF ['sales'7. Value -count
-new-df=dfCdf C'sales'77=12）
-print (new-df shape)
-new-dF = new _ dF [T'TV', 'Sales'I]
-new_dF. Sample (5)
-Xinp-array （neu-df 「r:TVココ）
-У = np. array (new-dF [l'Sales']])
-print (x. shape) print (y. shape)
-plt.titleC'TV Vs Sales'）
-pIt. xlabel (TV')
-p/t. ylabel ('Sales')
-plt show ()
-x_train, X-test, y-brain. Ytest = trauntest
-Split (x,y, test size = 0.25, randan.
-state=15）
-regression = LinearRegression ()
-regression (x-train, y-train)
-pIt scatter (x-test, y -test, color = "green" )
-pit. plot (xtrain, regressor. predict (x tocin),
-color ="red", Linewidth = 3)
-plt. title
+#Import necessary libraries
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split
+
+# Create 'Position_Salaries' dataset
+data = {'Position': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        'Level': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        'Salary': [45000, 50000, 60000, 80000, 110000, 150000, 200000, 300000, 500000, 1000000]}
+
+df = pd.DataFrame(data)
+
+# Identify independent (X) and target (y) variables
+X = df[['Level']]
+y = df['Salary']
+
+# Split the variables into training and testing sets (7:3 ratio)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Print the training and testing sets
+print("Training set:")
+print("X_train:\n", X_train)
+print("y_train:\n", y_train)
+
+print("\nTesting set:")
+print("X_test:\n", X_test)
+print("y_test:\n", y_test)
+
+# Build a simple linear regression model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Make predictions on the testing set
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+mse = mean_squared_error(y_test, y_pred)
+print("\nMean Squared Error on Test Set:", mse)
+
+# Plot the regression line
+plt.scatter(X_test, y_test, color='blue', label='Actual')
+plt.plot(X_test, y_pred, color='red', linewidth=2, label='Predicted')
+plt.title('Simple Linear Regression Model')
+plt.xlabel('Level')
+plt.ylabel('Salary')
+plt.legend()
+plt.show()
+
