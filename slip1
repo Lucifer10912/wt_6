@@ -1,13 +1,34 @@
 Q1
+
+HTML CODE
+<html>
+<body bgcolor='pink'>
+<form action="a5_a1.php" method="GET">
+<br>
+<input type='submit' value='OK'>
+</form>
+</body>
+</html>
+
+php
 <?php
-Session_start();
-If(isset($_SESSION[‘pcount])){
-$_SESSION[‘pcount]+=1;
-}else{
-$_SESSION[‘pcount]=1;
+session_start();
+if(isset($_SESSION['cnt']))
+{
+$_SESSION['cnt']+=1;
 }
-Echo“Youhavevisitedthispage“.$_SESSION[‘pcount].”Time(s).”;
-?
+else
+{
+$_SESSION['cnt']=1;
+}
+echo "you have visited the page".$_SESSION['cnt']."times";
+echo "<a href=a5_a1.php> click here</a>";
+?>
+
+
+
+
+
 Q2
 Importnumpyasnp
 Importpandasaspd
