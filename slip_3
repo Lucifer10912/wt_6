@@ -1,47 +1,56 @@
 Q1
+
+HTML CODE
+
+<html>
+<body>
+<form method="POST" action="o1.php">
+Enter UserName:
+<input type="text" name="txt1" id="txt1">
+<br>
+Enter Password:<input type="text" name="txt2" id="txt2">
+<br>
+<input type="submit" value="login"">
+</form>
+</body>
+</html>
+
+PHP CODE
+
 <?php
-//Startsession
-Session_start();
-//Checkifloginformhasbeensubmitted
-If(isset($_POST[‘submit’])){
-//Getusernameandpasswordinputfromuser
-$username=$_POST[‘username’];
-$password=$_POST[‘password’];
-//Setcorrectusernameandpassword
-$correct_username=‘myusername’;
-$correct_password=‘mypassword’;
-//Checkifenteredusernameandpasswordarecorrect
-If($username==$correct_username&&$password==$correct_password){
-//Setsessionvariabletomarkuserasloggedin
-$_SESSION[‘loggedin’]=true;
-//Redirectusertowelcomepage
-Header(‘Location:welcome.php’);
-Exit;
-}else{
-//Decrementloginattempts
-If(isset($_SESSION[‘attempts’])){
-$_SESSION[‘attempts’]--;
-}else{
-$_SESSION[‘attempts’]=3;
+session_start();
+if(!isset($_SESSION['count']))
+$_SESSION['count']=0;
+$username=$_POST['txt1'];
+$password=$_POST['txt2'];
+if($username==""&&$password=="")
+{
+echo"Enter All Details";
 }
-//Displayerrormessageifmaximumloginattemptsexceeded
-If($_SESSION[‘attempts’]<=0){
-Echo“Maximumloginattemptsexceeded.Pleasetryagainlater.”;
-}else{
-//Displayerrormessage
-Echo“Invalidusernameorpassword.Youhave“.$_SESSION[‘attempts’].”Attempt(s)left.”;
+if($username=="ty"&&$password=="123456")
+{
+echo"login Successfull";
+$_SESSION['count']=0;
 }
+else
+{
+$_SESSION['count']=$_SESSION['count']+1;
+if($_SESSION['count']>2)
+{
+echo ("You Exceeded the Limit...ie,3");
+$_SESSION['count']=0;
+}
+else
+{
+echo"Login Failed ... Wrong Details Entered... attempts made:".
+$_SESSION['count'];
+include('a.html');
 }
 }
 ?>
-<!—HTMLformforuserinput
-<formmethod=”post”>
-<labelfor=”username”>Username:</label>
-<inputtype=”text”id=”username”name=”username”required><br><br>
-<labelfor=”password”>Password:</label>
-<inputtype=”password”id=”password”name=”password”required><br><br>
-<inputtype=”submit”name=”submit”value=”LogIn”>
-</form>
+
+
+
 
 Q2
 Importpandasaspd
