@@ -63,20 +63,25 @@ Sierra</Book_Author>
 
 
 Q2
-Transactions=[[‘eggs’,‘milk’,‘bread’],[‘eggs’,‘apple’],[‘milk’,‘bread’],[‘apple’,‘milk’],[‘milk’,
-‘apple’,‘bread’]]
-#Createadictionarytomapitemstouniquenumericvalues
-Item_to_num={‘eggs’:1,‘milk’:2,‘bread’:3,‘apple’:4}
-#Convertthecategoricalvaluesinthedatasettonumericvalues
-Numeric_transactions=[]
-Fortransactionintransactions:
-Numeric_transaction=[item_to_num[item]foritemintransaction]
-Numeric_transactions.append(numeric_transaction)
-Print(numeric_transactions)
-Frommlxtend.frequent_patternsimportapriori,association_rules
-#Generatefrequentitemsetswithaminimumsupportof0.4
-Frequent_itemsets=apriori(numeric_transactions,min_support=0.4,use_colnames=True)
-#Generateassociationruleswithaminimumconfidenceof0.7
-Rules=association_rules(frequent_itemsets,metric=”confidence”,min_threshold=0.7)
-Print(frequent_itemsets)
-Print(rules)
+
+import pandas as pd
+from mlxtend.frequent_patterns import apriori, association_rules
+from mlxtend.preprocessing import TransactionEncoder
+
+transactions = [['eggs','Milk','bread'],
+                ['eggs','apple'],
+                ['Milk','bread'],
+                ['apple','Milk'],
+                ['Milk','apple','bread']]
+print(transactions)
+
+te = TransactionEncoder()
+te_array = te.fit(transactions).transform(transactions)
+df = pd.DataFrame(te_array, columns=te.columns_)
+print(df)
+freq_items = apriori(df, min_support=0.5,use_colnames = True)
+print(freq_items)
+rules = association_rules(freq_items,metric='support',min_threshold=0.5)
+rules = rules.sort_values(['support','confidence'], ascending=[False,False])
+print(rules)
+
