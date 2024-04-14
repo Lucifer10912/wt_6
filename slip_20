@@ -40,16 +40,24 @@ Q1
 
 
 Q2
-Importnltk
-Fromnltk.corpusimportstopwords
-Nltk.download(‘stopwords’)
-#Textparagraph
-Text=“Helloall,WelcometoPythonProgrammingAcademy.PythonProgrammingAcademyis
-aniceplatformtolearnnewprogrammingskills.ItisdifficulttogetenrolledinthisAcademy.”
-#Tokenizethetext
-Tokens=nltk.word_tokenize(text)
-#Removestopwords
-Stop_words=set(stopwords.words(‘english’))
-Filtered_tokens=[wordforwordintokensifnotword.lower()instop_words]
-#Printthefilteredtokens
-Print(filtered_tokens)
+
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+
+paragraph_text = """
+    Hello all, Welcome to Python Programming Academy. Python Programming Academy is a nice platform to learn new programming 
+    sklls. It is difficult to get enrolled in this Academy 
+    """
+tokenized_words = word_tokenize(paragraph_text)
+
+stop_words_data = set(stopwords.words("english"))
+print("List of Stopwords: \n",stop_words_data)
+
+filered_words_list = []
+
+for word in tokenized_words:
+    if word not in stop_words_data:
+        filered_words_list.append(word)
+
+print("\n Tokenized Words: \n",tokenized_words)
+print("\n Filtered Words: \n",filered_words_list)
